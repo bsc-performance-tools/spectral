@@ -190,7 +190,7 @@ int Reconstruct(char *input_trace, int num_detected_periods, Period_t **detected
 	ifstream ifs_pcf ((tracename.substr (0, tracename.rfind(".prv"))+string(".pcf")).c_str());
 	if (ifs_pcf.is_open())
 	{
-		ofstream ofs_pcf ((tracename.substr (0, tracename.rfind(".prv"))+string(".new.pcf")).c_str());
+		ofstream ofs_pcf ((tracename.substr (0, tracename.rfind(".prv"))+string(".iterations.pcf")).c_str());
 		ofs_pcf << ifs_pcf.rdbuf();
 		ifs_pcf.close();
 		ofs_pcf.close();
@@ -199,7 +199,7 @@ int Reconstruct(char *input_trace, int num_detected_periods, Period_t **detected
 	ifstream ifs_row ((tracename.substr (0, tracename.rfind(".prv"))+string(".row")).c_str());
 	if (ifs_row.is_open())
 	{
-		ofstream ofs_row ((tracename.substr (0, tracename.rfind(".prv"))+string(".new.row")).c_str());
+		ofstream ofs_row ((tracename.substr (0, tracename.rfind(".prv"))+string(".iterations.row")).c_str());
 		ofs_row << ifs_row.rdbuf();
 		ifs_row.close();
 		ofs_row.close();

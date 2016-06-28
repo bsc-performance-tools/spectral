@@ -378,7 +378,7 @@ AC_DEFUN([AX_OPENMP],
 AC_DEFUN([AX_LIBBSCTOOLS],
 [
 
-  HaveLibtools="yes"
+  HaveLibBSCTools="yes"
   AC_MSG_CHECKING([for libbsctools])
   AC_ARG_WITH(libbsctools,
         AC_HELP_STRING(
@@ -392,7 +392,7 @@ AC_DEFUN([AX_LIBBSCTOOLS],
         AC_MSG_ERROR([Invalid directory specified in --with-libbsctools])
   fi
   if test ! -f ${LibBSCToolsDir}/include/ParaverRecord.h -o ! -f ${LibBSCToolsDir}/include/ParaverTrace.h ; then
-        HaveLibtools="no"
+        HaveLibBSCTools="no"
         AC_MSG_WARN([Cannot find some header files of the libbsctools! Make sure that --with-libbsctools is pointing to the correct place.])
   else
         AC_MSG_RESULT([found in ${LibBSCToolsDir}])
@@ -408,7 +408,7 @@ AC_DEFUN([AX_LIBBSCTOOLS],
           LibBSCToolsDir_Lib=${LibBSCToolsDir}/lib64
           AC_MSG_RESULT([found in ${LibBSCToolsDir_Lib}])
   else
-          HaveLibtools="no"
+          HaveLibBSCTools="no"
           AC_MSG_WARN([Cannot find libparavertraceconfig.a! Make sure that --with-libbsctools is pointing to the correct place.])
   fi
 
@@ -423,13 +423,13 @@ AC_DEFUN([AX_LIBBSCTOOLS],
 
   AC_MSG_CHECKING([for prvparser-config])
   if test ! -f ${LibBSCToolsDir}/bin/prvparser-config ; then
-    HaveLibtools="no"
+    HaveLibBSCTools="no"
     AC_MSG_RESULT([no])
   else
     AC_MSG_RESULT([yes])
   fi
   
-  if test "${HaveLibtools}" = "yes" ; then
+  if test "${HaveLibBSCTools}" = "yes" ; then
     LIBBSCTOOLS_DIR=${LibBSCToolsDir}
     LIBBSCTOOLS_LIB_DIR=${LibBSCToolsDir_Lib}
     LIBBSCTOOLS_CFLAGS="-I$LIBBSCTOOLS_DIR/include"
@@ -446,6 +446,6 @@ AC_DEFUN([AX_LIBBSCTOOLS],
   fi
 
   AM_CONDITIONAL(LIBBSCTOOLS_HAS_SHARED_LIBRARIES, test "${LibBSCToolsDir_HasShared}" = "yes")
-  AM_CONDITIONAL(HAVE_LIBBSCTOOLS, test "${HaveLibtools}" = "yes")
+  AM_CONDITIONAL(HAVE_LIBBSCTOOLS, test "${HaveLibBSCTools}" = "yes")
 ])
 

@@ -37,7 +37,7 @@ trace_analysis_SOURCES = \
   optim-main.cpp
 trace_analysis_CXXFLAGS = -I$(FFT_INCLUDES)
 trace_analysis_LDADD    = libspectral.la
-if HAVE_LIBTOOLS
+if HAVE_LIBBSCTOOLS
 trace_analysis_SOURCES += \
   reconstruct_trace.cpp reconstruct_trace.h 
 trace_analysis_CXXFLAGS += `@PRVPARSER_CONFIG@ --cflags`
@@ -50,7 +50,7 @@ signal_analysis_LDADD   = libspectral.la
 
 csv_analysis_SOURCES = \
   csv-analysis.c
-if HAVE_LIBTOOLS
+if HAVE_LIBBSCTOOLS
 csv_analysis_SOURCES += \
   reconstruct_trace.cpp reconstruct_trace.h
 csv_analysis_CXXFLAGS = `@PRVPARSER_CONFIG@ --cflags`

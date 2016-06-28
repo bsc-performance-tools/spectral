@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 
   numPeriods = Spectral_ExecuteAnalysis(signal, target_iters, WINDOWING_NONE, &listPeriods);
 
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
   Reconstruct(input_trace, numPeriods, listPeriods);
 #endif
 

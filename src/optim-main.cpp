@@ -9,7 +9,7 @@
 #include "optim-macros.h"
 #include "optim-functions.h"
 #include "config.h"
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
 #include "reconstruct_trace.h"
 #endif
 
@@ -49,7 +49,7 @@ void PrintUsage(char *app_name)
                   "  Choose one between:\n"
                   "    -i <# iterations> : Generate a chop containing the given number of iterations.\n"
                   "    -s <size in Mb>   : Generate a chop of the given size.\n"
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
                   "    -r                : Reconstruct the trace marking the iterations.\n"
 #endif
                   "\n"
@@ -91,7 +91,7 @@ void ParseArgs(int argc, char **argv, int *out_num_traces, char ***out_input_tra
           target_iterations = atoi(argv[j]);
           use_iterations = 1;
           break;
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
         case 'r':
           reconstruct_trace = 1;
           break;
@@ -398,7 +398,7 @@ main (int argc, char *argv[])
                         &periods_found, &periods[trace_num], signals[trace_num], &t0, &t1, traces[trace_num], hp, jp, num_chop, target_iterations, trace_size,
                         totaltime[trace_num]);
 
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
           if (reconstruct_trace)
           {
             detected_periods = (Period_t **)malloc((num_detected_periods + 1) * sizeof(Period_t *));
@@ -414,7 +414,7 @@ main (int argc, char *argv[])
       fprintf(stdout, "No periods found for trace %s\n", input_traces[trace_num]);
     }
 
-#if defined(HAVE_LIBTOOLS)
+#if defined(HAVE_LIBBSCTOOLS)
     if (reconstruct_trace)
     {
       fprintf(stdout, "\nReconstructing trace... ");

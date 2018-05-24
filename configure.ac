@@ -5,8 +5,14 @@
 #    Initializations    #
 #########################
 
+m4_define([spectral_major], [3])
+m4_define([spectral_minor], [4])
+m4_define([spectral_micro], [0])
+
+m4_define([spectral_version], [spectral_major.spectral_minor.spectral_micro])
+
 # Initialize autoconf & define package name, version and bug-report address 
-AC_INIT(Spectral, 3.4.0, tools@bsc.es)
+AC_INIT(Spectral, [spectral_version], tools@bsc.es)
 
 # GNU Autotools intermediate files are stored in the following directory
 AC_CONFIG_AUX_DIR(config)

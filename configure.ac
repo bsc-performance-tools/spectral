@@ -7,7 +7,7 @@
 
 m4_define([spectral_major], [3])
 m4_define([spectral_minor], [4])
-m4_define([spectral_micro], [0])
+m4_define([spectral_micro], [1])
 
 m4_define([spectral_version], [spectral_major.spectral_minor.spectral_micro])
 
